@@ -37,3 +37,27 @@ for i in range(count):
 
 #참조: https://westmino.tistory.com/4
     
+
+############################시간 초과 풀이####################################
+
+count = int(input())
+nums = []
+for i in range(count):
+    nums.append(int(input()))
+print(nums)
+
+for i in range(count):
+    queue = []
+    queue.append('1')
+    while queue:
+        k = queue.pop(0)
+        if len(k) > 100:
+            print("BARK")
+            break
+        if int(k) % nums[i] == 0:
+            print(k)
+            break
+        for next in [k + '0', k + '1']:
+            queue.append(next)
+    
+    
